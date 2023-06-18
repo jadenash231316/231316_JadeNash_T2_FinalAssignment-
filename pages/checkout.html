@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sandwiches & Subs: Checkout Page</title>
+
+  <link rel="stylesheet" href="/css/check.css">
+  <script>
+    function saveOrder() {
+      var itemName = document.getElementById("item-name").value;
+      var itemPrice = document.getElementById("item-price").value;
+
+      var order = {
+        itemName: itemName,
+        itemPrice: itemPrice
+      };
+
+      var orderJSON = JSON.stringify(order);
+
+      localStorage.setItem("order", orderJSON);
+    }
+
+    function applyCoupon() {
+      var couponCode = document.getElementById("coupon-code").value;
+
+      if (couponCode === "SALE10") {
+        var orderJSON = localStorage.getItem("order");
+
+        var order = JSON.parse(orderJSON);
+
+        var itemPrice = parseFloat(order.itemPrice);
+        var discountPercentage = 10; 
+        var discountAmount = (itemPrice * discountPercentage) / 100;
+        var discountedPrice = itemPrice - discountAmount;
+
+        document.getElementById("item-price").value = discountedPrice.toFixed(2) + " ZAR";
+      } else {
+        alert("Invalid coupon code");
+      }
+    }
+
+    // Function to update prices to ZAR
+    function updatePricesToZAR() {
+      var itemPriceElements = document.getElementsByClassName("item-price");
+      for (var i = 0; i < itemPriceElements.length; i++) {
+        var itemPriceElement = itemPriceElements[i];
+        var itemPrice = parseFloat(itemPriceElement.textContent);
+        var itemPriceZAR = (itemPrice * exchangeRate).toFixed(2) + " ZAR";
+        itemPriceElement.textContent = itemPriceZAR;
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Checkout Page</h1>
+  <form>
+    <label for="item-name">Item Name:</label>
+    <input type="text" id="item-name" required><br>
+
+    <label for="item-price">Item Price:</label>
+    <input type="text" id="item-price" class="item-price" required><br>
+
+    <label for="coupon-code">Coupon Code:</label>
+    <input type="text" id="coupon-code"><br>
+
+    <button type="button" onclick="saveOrder()">Save Order</button>
+    <button type="button" onclick="applyCoupon()">Apply Coupon</button>
+  </form>
+
+  <script>
+    // Run the function to update prices to ZAR after the DOM is loaded
+    document.addEventListener("DOMContentLoaded", function() {
+      updatePricesToZAR();
+    });
+
+    // Sample exchange rate
+    var exchangeRate = 15.00; // Replace with your desired exchange rate
+  </script>
+</body>
+</html>

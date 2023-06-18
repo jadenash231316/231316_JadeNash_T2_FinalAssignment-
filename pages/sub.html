@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/Sub.css">
+  <title>Build a Sub</title>
+</head>
+<body>
+  <header>
+    <h1>Build a Sub</h1>
+    <nav>
+      <ul>
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/pages/checkout.html">Check Out</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <section id="sub-builder">
+    
+    <div class="form-group">
+      <label for="subName">Sub Name:</label>
+      <input type="text" class="form-control" id="subName" placeholder="Enter sub name">
+    </div>
+    <div class="form-group">
+      <h2>Bread Options</h2>
+      <label for="bread">Choose Bread:</label>
+      <select id="bread" name="bread">
+        <option value="white" data-price="25">White Bread (R10)</option>
+        <option value="whole-wheat" data-price="30">Whole Wheat Bread (R12)</option>
+        <option value="multigrain" data-price="35">Multigrain Bread (R15)</option>
+        <option value="ciabatta" data-price="40">Ciabatta Bread (R14)</option>
+        <option value="baguette" data-price="40">Baguette Bread (R13)</option>
+        <option value="rye" data-price="30">Rye Bread (R11)</option>
+      </select><br><br>
+    </div>
+    <div class="form-group">
+      <h2>Topping Options</h2>
+      <label for="toppings">Choose Toppings (select at least 1):</label><br>
+      <input type="checkbox" id="lettuce" name="toppings" value="lettuce" data-price="5">
+      <label for="lettuce">Lettuce (R2)</label><br>
+      <input type="checkbox" id="tomato" name="toppings" value="tomato" data-price="5">
+      <label for="tomato">Tomato (R2)</label><br>
+      <input type="checkbox" id="onion" name="toppings" value="onion" data-price="5">
+      <label for="onion">Onion (R1)</label><br>
+      <input type="checkbox" id="cucumber" name="toppings" value="cucumber" data-price="5">
+      <label for="cucumber">Cucumber (R2)</label><br>
+      <input type="checkbox" id="olives" name="toppings" value="olives" data-price="5">
+      <label for="olives">Olives (R3)</label><br>
+      <input type="checkbox" id="bell-pepper" name="toppings" value="bell-pepper" data-price="5">
+      <label for="bell-pepper">Bell Pepper (R2)</label><br>
+    </div>
+    <div class="form-group">
+      <h2>Sauce Options</h2>
+      <label for="sauce">Choose Sauce:</label>
+      <select id="sauce" name="sauce">
+        <option value="mayo" data-price="3">Mayonnaise (R1)</option>
+        <option value="mustard" data-price="3">Mustard (R1)</option>
+        <option value="ketchup" data-price="3">Ketchup (R1)</option>
+        <option value="ranch" data-price="3">Ranch (R1)</option>
+        <option value="bbq" data-price="3">BBQ Sauce (R3)</option>
+        <option value="hot-sauce" data-price="3">Hot Sauce (R2)</option>
+      </select><br><br>
+      <h2>Meat Options</h2>
+      <label for="meat">Choose Meat:</label><br>
+      <input type="checkbox" id="ham" name="meat" value="ham" data-price="10">
+      <label for="ham">Ham(R5)</label><br>
+      <input type="checkbox" id="turkey" name="meat" value="turkey" data-price="10">
+      <label for="turkey">Turkey(R6)</label><br>
+      <input type="checkbox" id="roast-beef" name="meat" value="roast-beef" data-price="10">
+      <label for="roast-beef">Roast Beef(R7)</label><br>
+      <input type="checkbox" id="chicken" name="meat" value="chicken" data-price="10">
+      <label for="chicken">Chicken(R6)</label><br>
+      <input type="checkbox" id="bacon" name="meat" value="bacon" data-price="10">
+      <label label for="bacon">Bacon(R5)</label><br>
+      <input type="checkbox" id="salami" name="meat" value="salami" data-price="10">
+      <label for="salami">Salami(R4)</label><br>
+    </div>
+    <br><br>
+      
+      <button id="add-sub-btn">Add Sub</button>
+    </div>
+    
+    <div id="sub-list">
+      <h3>Your Subs:</h3>
+      <ul id="sub-items"></ul>
+      
+      <div id="total-cost">
+        <h3>Total Cost: <span id="total-amount">R0</span></h3>
+      </div>
+      
+      <button id="cancel-order-btn">Cancel Order</button>
+      <button id="check-out-btn">Check Out</button>
+    </div>
+  </section>
+  
+  <script src="script.js"></script>
+</body>
+</html>
